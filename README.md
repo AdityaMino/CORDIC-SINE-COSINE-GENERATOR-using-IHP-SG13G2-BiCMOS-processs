@@ -29,7 +29,7 @@ CORDICs can also be implemented in many ways, including a single-stage iterative
 
 ---
 
-## 📌 Mathematical Modelling
+## 📐 Mathematical Modelling
 
 The CORDIC algorithm is based on iterative **vector rotations** using predefined elementary angles. Consider the following rotations of vectors:
 
@@ -96,7 +96,7 @@ In order to achieve k bit of precision, k iterations are needed, because **tan�
 
 ---
 
-## 📌 Methodology
+## ⚙️ Methodology
 
 To implement a **CORDIC Sine/Cosine Generator in Verilog**, we divide the design into the following parts:
 
@@ -124,7 +124,7 @@ Once the iterations are complete, the final sine and cosine values are available
 
 ---
 
-## 📌 Implementation
+## 🛠️ Implementation
 
 The implementation of the CORDIC sine–cosine generator in this design is based on the principle of iterative vector rotations using only shift and add operations, avoiding costly multipliers. The module is written in Verilog and structured into several key components that handle initialization, iterative rotation, and final output generation.
 
@@ -202,7 +202,7 @@ CORDIC-SINE-COSINE-Generator/
 
 ---
 
-## 📌 Verification
+## 🔬 Verification
 
 To validate the correctness of the CORDIC ```sine/cosine``` generator, a dedicated testbench (```cordic_test.v```) is developed. This testbench simulates the rotation mode of the CORDIC algorithm and checks whether the computed outputs (Xout, Yout) converge to the expected cosine and sine values for a given input angle.
 
@@ -222,7 +222,7 @@ The DUT then outputs:
 
 - ```Yout``` → Corresponds to sin(θ) (scaled by the system’s gain factor).
 
-🔹 Input Initialization
+### Input Initialization
 
 The testbench begins by setting:
 
@@ -258,7 +258,7 @@ The testbench demonstrates how CORDIC iteratively converges to the correct trigo
 
 ---
 
-## 📌 Conclusion
+## 💡 Conclusion
 
 - The **CORDIC-based sine/cosine generator** provides an efficient multiplier-less solution for trigonometric computations.  
 - Expected Results:  
