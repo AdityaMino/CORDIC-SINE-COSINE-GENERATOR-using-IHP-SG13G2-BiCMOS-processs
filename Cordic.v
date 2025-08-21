@@ -1,4 +1,3 @@
-// Code your design here
 `timescale 1ns/100ps
 
 module sine_cosine #(
@@ -47,29 +46,30 @@ module sine_cosine #(
     reg signed [DATA_WIDTH:0] Y [0:ITER-1];
     reg signed [ANGLE_WIDTH-1:0] Z [0:ITER-1];
 
+        // --------------------------------------------
+    // Stage 0 : Quadrant handling for signed angles (−π…+π)
+    // Keep the residual angle |Z| ≤ π/2 by pre-rotating ±π/2
     // --------------------------------------------
-    // Stage 0 : Quadrant handling
-    // --------------------------------------------
-    wire [1:0] quadrant = angle[ANGLE_WIDTH-1:ANGLE_WIDTH-2];
+    // π/2 in this fixed-point scheme (2π = 2^ANGLE_WIDTH) is 2^(ANGLE_WIDTH-2)
+    localparam signed [ANGLE_WIDTH-1:0] PI_OVER_2 = (1 << (ANGLE_WIDTH-2));
 
     always @(posedge clock) begin
-        case (quadrant)
-            2'b00, 2'b11: begin
-                X[0] <= Xin;
-                Y[0] <= Yin;
-                Z[0] <= angle;
-            end
-            2'b01: begin
-                X[0] <= -Yin;
-                Y[0] <= Xin;
-                Z[0] <= {2'b00, angle[ANGLE_WIDTH-3:0]}; // subtract pi/2
-            end
-            2'b10: begin
-                X[0] <= Yin;
-                Y[0] <= -Xin;
-                Z[0] <= {2'b11, angle[ANGLE_WIDTH-3:0]}; // add pi/2
-            end
-        endcase
+        if (angle >  PI_OVER_2) begin
+            // angle in ( +π/2, +π ] → pre-rotate by -π/2
+            X[0] <= -Yin;
+            Y[0] <=  Xin;
+            Z[0] <= angle - PI_OVER_2;
+        end else if (angle < -PI_OVER_2) begin
+            // angle in [ −π, −π/2 ) → pre-rotate by +π/2
+            X[0] <=  Yin;
+            Y[0] <= -Xin;
+            Z[0] <= angle + PI_OVER_2;
+        end else begin
+            // angle in [ −π/2, +π/2 ] → no pre-rotation
+            X[0] <= Xin;
+            Y[0] <= Yin;
+            Z[0] <= angle;
+        end
     end
 
     // --------------------------------------------
