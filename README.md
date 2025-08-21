@@ -300,10 +300,11 @@ The testbench demonstrates how CORDIC iteratively converges to the correct trigo
 3. [3] C. K. Cockrum, “Implementation of the cordic algorithm in a digitaldown-converter,” 2008. [Online]. Available: cockrum.net/CockrumFall 2008 Final Paper.pdf
 4. [4] J. E. Volder, “The CORDIC trigonometric computing technique,” Elec-tronic Computers, IRE Transactions on, no. 3, pp. 330–334, 1959.
 5. [5] J. S. Walther, “A uniﬁed algorithm for elementary functions,” inProceedings of the May 18-20, 1971, spring joint computer conference.ACM, 1971, pp. 379–385.
-6. Volder, J. E. (1959). "The CORDIC trigonometric computing technique." *IRE Transactions on Electronic Computers*  
-7. Andraka, R. (1998). "A survey of CORDIC algorithms for FPGA based computers." *ACM/SIGDA*  
-8. [CORDIC Algorithm - Wikipedia](https://en.wikipedia.org/wiki/CORDIC)  
-9. [FPGA4Student - CORDIC in Verilog](https://www.fpga4student.com/)  
+6. Renardy, Antonius & Ahmadi, Nur & Fadila, Ashbir & Shidqi, Naufal & Adiono, Trio. (2015). FPGA implementation of CORDIC algorithms for sine and cosine generator. 10.1109/ICEEI.2015.7352460. 
+7. Volder, J. E. (1959). "The CORDIC trigonometric computing technique." *IRE Transactions on Electronic Computers*  
+8. Andraka, R. (1998). "A survey of CORDIC algorithms for FPGA based computers." *ACM/SIGDA*  
+9. [CORDIC Algorithm - Wikipedia](https://en.wikipedia.org/wiki/CORDIC)  
+10. [FPGA4Student - CORDIC in Verilog](https://www.fpga4student.com/)  
 
 ---
 
