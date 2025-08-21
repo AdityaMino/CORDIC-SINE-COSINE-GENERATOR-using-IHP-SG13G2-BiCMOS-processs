@@ -1,6 +1,6 @@
 ![IHP Badge](https://img.shields.io/badge/IHP-Institute%20for%20High%20Performance%20Microelectronics-blue?style=for-the-badge&logo=researchgate&logoColor=white)
-![OPENROAD Badge](https://img.shields.io/badge/OpenROAD-EDA%20Flow-orange?style=for-the-badge&logo=roadmap&logoColor=white)
-![FOSSEE Badge](https://img.shields.io/badge/FOSSEE-Open%20Source%20EDA-green?style=for-the-badge&logo=github&logoColor=white)
+![OPENROAD Badge](https://img.shields.io/badge/OpenROAD-EDA%20Flow-ff3300?style=for-the-badge&logo=roadmap&logoColor=white)
+![FOSSEE Badge](https://img.shields.io/badge/FOSSEE-Open%20Source%20EDA-purple?style=for-the-badge&logo=github&logoColor=white)
 
 # 💻📐CORDIC SINE/COSINE GENERATOR using IHP SG13G2 BiCMOS PDK 
 ---
