@@ -285,3 +285,7 @@ The testbench demonstrates how CORDIC iteratively converges to the correct trigo
 
 ---
 
+## Contributers
+- Aditya Minocha(adityaminocha10@gmail.com), [eSim](https://esim.fossee.in/) Team, [FOSSEE](https://fossee.in/), IIT Bombay
+- Sumanto Kar(jeetsumanto123@gmail.com, sumantokar@iitb.ac.in), [eSim](https://esim.fossee.in/) Team, [FOSSEE](https://fossee.in/), IIT Bombay
+
