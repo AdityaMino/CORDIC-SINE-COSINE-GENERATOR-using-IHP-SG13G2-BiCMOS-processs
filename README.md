@@ -256,6 +256,28 @@ The clock is generated with a ```10 ns period (100 MHz)```. The start signal is 
 
 The testbench demonstrates how CORDIC iteratively converges to the correct trigonometric results. By sweeping through different input angles, one can confirm both the functional correctness and the numerical accuracy of the design. This provides confidence that the design is ready for synthesis and GDS generation in the OpenROAD flow.
 
+## 📊 Functional Simulation Results
+| Angle (deg) | Expected Cos | Actual Cos | % Deviation (Cos)  | Expected Sin | Actual Sin | % Deviation (Sin)  |
+| ----------- | ------------ | ---------- | ------------------ | ------------ | ---------- | ------------------ |
+| -180        | -32000       | -32002     | **0.006%**         | 0            | 2          | **∞ (tiny denom)** |
+| -150        | -27713       | -27712     | **0.004%**         | -16000       | -16002     | **0.013%**         |
+| -120        | -16000       | -16002     | **0.013%**         | -27713       | -27712     | **0.004%**         |
+| -90         | 0            | -2         | **∞ (tiny denom)** | -32000       | -32001     | **0.003%**         |
+| -60         | 16000        | 16002      | **0.013%**         | -27713       | -27713     | **0.000%**         |
+| -30         | 27713        | 27712      | **0.004%**         | -16000       | -16002     | **0.013%**         |
+| 0           | 32000        | 32001      | **0.003%**         | 0            | 0          | **0.000%**         |
+| 30          | 27713        | 27711      | **0.007%**         | 16000        | 16002      | **0.013%**         |
+| 60          | 16000        | 16002      | **0.013%**         | 27713        | 27711      | **0.007%**         |
+| 90          | 0            | 0          | **0.000%**         | 32000        | 32001      | **0.003%**         |
+| 120         | -16000       | -16002     | **0.013%**         | 27713        | 27712      | **0.004%**         |
+| 150         | -27713       | -27713     | **0.000%**         | 16000        | 16002      | **0.013%**         |
+| 180         | -32000       | -32001     | **0.003%**         | 0            | -2         | **∞ (tiny denom)** |
+
+### Observations:
+
+- The CORDIC outputs are extremely accurate, with deviation ≤ 0.013%.
+- The only large "% deviation" happens when the expected value is 0, since relative error is undefined (but absolute error is ≤2, negligible compared to scale 32000).
+  
 ---
 
 ## 💡 Conclusion
