@@ -5,7 +5,7 @@ module cordic_test;
 localparam SZ = 16; // bits of accuracy
 
 reg  signed [SZ-1:0] Xin, Yin;
-reg  [31:0] angle;
+reg  signed [31:0] angle;   // signed angle for -π .. +π
 wire signed [SZ:0] Xout, Yout;
 reg         CLK_100MHZ;
 
@@ -15,7 +15,8 @@ reg         CLK_100MHZ;
 localparam FALSE = 1'b0;
 localparam TRUE  = 1'b1;
 
-localparam VALUE = 32000/1.647; // reduce by CORDIC gain
+localparam real CORDIC_GAIN = 1.646760258;
+localparam VALUE = 32000 / CORDIC_GAIN; // reduce by exact CORDIC gain
 
 reg signed [63:0] i;
 reg start;
@@ -37,15 +38,23 @@ initial begin
    @(posedge CLK_100MHZ);
    start = TRUE;
 
-   // Sweep angles 0–360 degrees
-   for (i = 0; i < 360; i = i + 30) begin
+   // Sweep angles -180° to +180° in 30° steps
+   for (i = -180; i <= 180; i = i + 30) begin
       @(posedge CLK_100MHZ);
       start = FALSE;
-      angle = ((1 << 32) * i) / 360; // map degrees -> 32-bit fraction of circle
-      @(posedge CLK_100MHZ);         // wait one cycle for pipeline update
 
-      $display("Angle = %3d deg | Xout (cos) = %d | Yout (sin) = %d", 
-               i, $signed(Xout), $signed(Yout));
+      // Map degrees (-180..+180) → signed 32-bit fraction of circle (-π..+π)
+      // Saturate +180° to +π - 1 LSB to avoid wrap ambiguity
+      if (i == 180)
+         angle = 32'sh7FFF_FFFF;
+      else
+         angle = $signed( ( (64'sd1 << 31) * i ) / 180 );
+
+      // wait full pipeline depth for convergence
+      repeat (SZ) @(posedge CLK_100MHZ);
+
+      $display("Angle = %4d deg | angle_hex = %h | Xout (cos) = %d | Yout (sin) = %d", 
+               i, angle, $signed(Xout), $signed(Yout));
    end
 
    #500;
