@@ -94,6 +94,8 @@ The more steps we take, the better the approximation that we can make by success
 
 In order to achieve k bit of precision, k iterations are needed, because **tan⁻¹(2⁻ⁱ) ⪅ 2⁻ⁱ**, converging as i increases. By iterating through the above steps, the sine and cosine values ​​of the input value z0 can be obtained from the output values ​​of x and y. However, the limitation of the cordic algorithm is that the range of the input value is [-99.8829,99.8829], but in the design occasion, the target rotation angle needs to cover the entire cycle, so it is necessary to follow the symmetry of trigonometric functions on the basis of this cordic algorithm Do preprocessing.
 
+*Extracted from [CORDIC Algorithm - Wikipedia](https://en.wikipedia.org/wiki/CORDIC)*   
+
 ---
 
 ## ⚙️ Methodology
@@ -256,7 +258,8 @@ The clock is generated with a ```10 ns period (100 MHz)```. The start signal is 
 
 The testbench demonstrates how CORDIC iteratively converges to the correct trigonometric results. By sweeping through different input angles, one can confirm both the functional correctness and the numerical accuracy of the design. This provides confidence that the design is ready for synthesis and GDS generation in the OpenROAD flow.
 
-## 📊 Functional Simulation Results
+## 📊 Functional Simulation Results via EDA Playground
+### Angle Width = 32, Iterations = 16
 | Angle (deg) | Expected Cos | Actual Cos | % Deviation (Cos)  | Expected Sin | Actual Sin | % Deviation (Sin)  |
 | ----------- | ------------ | ---------- | ------------------ | ------------ | ---------- | ------------------ |
 | -180        | -32000       | -32002     | **0.006%**         | 0            | 2          | **∞ (tiny denom)** |
@@ -273,6 +276,15 @@ The testbench demonstrates how CORDIC iteratively converges to the correct trigo
 | 150         | -27713       | -27713     | **0.000%**         | 16000        | 16002      | **0.013%**         |
 | 180         | -32000       | -32001     | **0.003%**         | 0            | -2         | **∞ (tiny denom)** |
 
+<img width="869" height="98" alt="image" src="https://github.com/user-attachments/assets/a65c5efe-29f5-4b48-93cb-a33550b7e773" />
+
+**Simulation Waveform Output for Iteration = 16**
+
+
+
+
+
+###
 ### Observations:
 
 - The CORDIC outputs are extremely accurate, with deviation ≤ 0.013%.
