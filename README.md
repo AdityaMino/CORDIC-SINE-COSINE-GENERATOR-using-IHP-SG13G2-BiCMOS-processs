@@ -3,8 +3,12 @@
 ![FOSSEE Badge](https://img.shields.io/badge/FOSSEE-Open%20Source%20EDA-purple?style=for-the-badge&logo=github&logoColor=white)
 
 # 💻📐CORDIC SINE/COSINE GENERATOR using IHP SG13G2 BiCMOS PDK 
----
 
+### Link to Config, Result & Report Files - https://drive.google.com/drive/folders/1CJBLXMF4tgyDq52xCBdd0AwyjrAjNWAI?usp=sharing
+
+<img width="1920" height="1080" alt="Screenshot from 2025-09-01 04-20-04" src="https://github.com/user-attachments/assets/9ea6439d-c486-4bff-9b04-b9124ceadb5c" />
+
+---
 ## 📌 Introduction
 
 Sine and cosine are fundamental functions that can be derived from complex functions and find applications across areas such as digital signal processing, wireless communication, biometrics, and robotics [1]. Several techniques exist for implementing hardware that computes sine and cosine, including Lookup Tables (LUTs), Maclaurin series expansion, and the CORDIC algorithm. The table lookup approach stores precomputed function values in memory for each possible input argument. This method is straightforward, as no on-the-fly calculations are needed, relying only on stored data. 
