@@ -1,0 +1,69 @@
+violation type: Metal Spacing
+	srcs: net:_02868_ net:_02871_
+	bbox = (456.5800, 224.6000) - (456.7500, 224.8000) on Layer Metal2
+violation type: Metal Spacing
+	srcs: net:_00251_ net:net4531
+	bbox = (333.0300, 413.6000) - (333.2150, 413.8000) on Layer Metal2
+violation type: Metal Spacing
+	srcs: net:_01752_
+	bbox = (211.3900, 504.5900) - (211.5900, 504.7400) on Layer Metal2
+violation type: Metal Spacing
+	srcs: net:_01750_ net:_01752_
+	bbox = (211.8850, 504.3900) - (212.0600, 504.5100) on Layer Metal2
+violation type: Metal Spacing
+	srcs: net:_01750_ net:_01752_
+	bbox = (211.8850, 504.3900) - (212.0600, 504.5200) on Layer Metal2
+violation type: Metal Spacing
+	srcs: net:_01750_ net:_01752_
+	bbox = (211.8850, 504.3900) - (211.8950, 504.5200) on Layer Metal2
+violation type: Metal Spacing
+	srcs: net:_01750_ net:_01752_
+	bbox = (211.8850, 504.3900) - (211.8950, 504.5100) on Layer Metal2
+violation type: Metal Spacing
+	srcs: net:_01752_
+	bbox = (211.3900, 504.5900) - (211.8850, 504.7400) on Layer Metal2
+violation type: Metal Spacing
+	srcs: net:_03112_ net:net4608
+	bbox = (404.7400, 126.3200) - (404.8550, 126.5200) on Layer Metal2
+violation type: Metal Spacing
+	srcs: net:_09770_ net:_09772_
+	bbox = (352.2250, 251.3850) - (352.4150, 251.5850) on Layer Metal2
+violation type: Short
+	srcs: net:net4142 net:net4575
+	bbox = (372.9900, 304.3100) - (373.0600, 304.3900) on Layer Metal2
+violation type: Short
+	srcs: net:_01752_ net:_01772_
+	bbox = (209.1100, 511.8800) - (209.1750, 512.0800) on Layer Metal2
+violation type: Short
+	srcs: net:_03113_ net:net4608
+	bbox = (404.7300, 126.7400) - (404.7400, 126.9400) on Layer Metal2
+violation type: Short
+	srcs: net:_03112_ net:net4608
+	bbox = (404.8550, 126.3250) - (404.9300, 126.5200) on Layer Metal2
+violation type: Short
+	srcs: net:_03113_ net:net4608
+	bbox = (404.7300, 126.7400) - (404.9300, 126.9400) on Layer Metal2
+violation type: Short
+	srcs: net:Z\[1\]\[27\] net:net4457
+	bbox = (128.8650, 50.7100) - (128.9150, 50.9100) on Layer Metal2
+violation type: Short
+	srcs: net:Z\[1\]\[27\] net:net4457
+	bbox = (128.8650, 50.3000) - (128.9150, 50.9100) on Layer Metal2
+violation type: Short
+	srcs: net:Z\[1\]\[27\] net:net4457
+	bbox = (128.8650, 50.3000) - (128.9150, 50.5000) on Layer Metal2
+violation type: Short
+	srcs: net:Z\[1\]\[27\] net:net4457
+	bbox = (128.8650, 50.3000) - (129.0650, 50.5000) on Layer Metal2
+violation type: Short
+	srcs: net:Z\[1\]\[27\] net:net4457
+	bbox = (128.8650, 50.3000) - (129.7450, 50.5000) on Layer Metal2
+violation type: Short
+	srcs: net:Z\[1\]\[27\] net:net4457
+	bbox = (128.8650, 50.7200) - (128.9800, 50.9100) on Layer Metal2
+violation type: Short
+	srcs: net:_03666_ net:_03918_
+	bbox = (66.0950, 357.3200) - (66.1250, 357.4100) on Layer Metal2
+violation type: Short
+	srcs: net:_09770_ net:_09772_
+	bbox = (352.2200, 251.3850) - (352.2250, 251.5450) on Layer Metal2
