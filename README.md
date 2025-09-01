@@ -4,7 +4,7 @@
 
 # 💻📐CORDIC SINE/COSINE GENERATOR using IHP SG13G2 BiCMOS PDK 
 
-### Link to Config, Result & Report Files - https://drive.google.com/drive/folders/1CJBLXMF4tgyDq52xCBdd0AwyjrAjNWAI?usp=sharing
+### Link to Config, Result & Report Files - https://drive.google.com/drive/folders/1ab9Aud67XGDDYHiDxVjKYbp__Htenu_X?usp=drive_link
 
 <img width="1920" height="1080" alt="Screenshot from 2025-09-01 04-20-04" src="https://github.com/user-attachments/assets/9ea6439d-c486-4bff-9b04-b9124ceadb5c" />
 
