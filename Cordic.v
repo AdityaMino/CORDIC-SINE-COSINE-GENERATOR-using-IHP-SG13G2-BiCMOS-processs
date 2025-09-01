@@ -1,9 +1,81 @@
 `timescale 1ns/100ps
 `default_nettype none
+
+module cordic_board
+(
+    inout wire clk_pad,
+    inout wire [31:0] angle_pad,
+    inout wire [15:0] Xin_pad,
+    inout wire [15:0] Yin_pad,
+    inout wire [16:0] Xout_pad,
+    inout wire [16:0] Yout_pad
+);
+
+    // ----------------------------
+    // Internal core wires
+    // ----------------------------
+    wire clock_core;
+    wire signed [31:0] angle_core;
+    wire signed [15:0] Xin_core;
+    wire signed [15:0] Yin_core;
+    wire signed [16:0] Xout_core;
+    wire signed [16:0] Yout_core;
+
+    // ----------------------------
+    // IO pad instantiations
+    // ----------------------------
+    sg13g2_IOPadIn sg13g2_IOPadIn_clk (
+        .p2c(clock_core),
+        .pad({clk_pad})
+    );
+
+    sg13g2_IOPadIn sg13g2_IOPadIn_angle (
+        .p2c(angle_core),
+        .pad({angle_pad})
+    );
+
+    sg13g2_IOPadIn sg13g2_IOPadIn_Xin (
+        .p2c(Xin_core),
+        .pad({Xin_pad})
+    );
+
+    sg13g2_IOPadIn sg13g2_IOPadIn_Yin (
+        .p2c(Yin_core),
+        .pad({Yin_pad})
+    );
+
+    sg13g2_IOPadOut16mA sg13g2_IOPadOut16mA_Xout (
+        .c2p(Xout_core),
+        .pad(Xout_pad)
+    );
+
+    sg13g2_IOPadOut16mA sg13g2_IOPadOut16mA_Yout (
+        .c2p(Yout_core),
+        .pad(Yout_pad)
+    );
+
+    // ----------------------------
+    // Instantiate CORDIC core
+    // ----------------------------
+    cordic #(
+        .DATA_WIDTH(16),
+        .ANGLE_WIDTH(32),
+        .ITER(16)
+    ) u_cordic (
+        .clock(clock_core),
+        .angle(angle_core),
+        .Xin(Xin_core),
+        .Yin(Yin_core),
+        .Xout(Xout_core),
+        .Yout(Yout_core)
+    );
+
+endmodule
+
 // Synthesizable CORDIC (ASIC/OpenLane friendly)
 // Verilog-2005 compatible version (no SystemVerilog 'int'/'automatic')
 
-module cordic_board #(
+module cordic #(
     parameter integer DATA_WIDTH  = 16,  // Xin/Yin/Xout/Yout base width
     parameter integer ANGLE_WIDTH = 32,  // angle phase accumulator width
     parameter integer ITER        = 16   // iterations (<= ANGLE_WIDTH)
